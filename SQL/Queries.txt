@@ -1,0 +1,46 @@
+-- show available databeses
+SHOW DATABASES;
+-- create new database
+CREATE DATABASE python_june_2025;
+-- to select db
+use python_june_2025;
+-- to show tables availabe in selected db
+show tables;
+-- delete database
+drop database nalla_peru;
+
+-- create new table in the selected database
+create table student(id int, name varchar(20),place varchar(15));
+
+-- delete table
+drop table student;
+
+-- fetch data
+SELECT name,place FROM student;
+SELECT * FROM student;
+
+-- insert data
+-- insert into table_name values();
+-- insert into table_name (col(s)) values();
+
+INSERT INTO student VALUES(1,"A","Calicut"),(2,"B","Kochi");
+
+SELECT * FROM student WHERE id=1;
+SELECT name FROM student WHERE id=1;
+
+-- delete from table
+DELETE FROM student WHERE id=1;
+
+-- update data in table
+-- UPDATE table_name SET col=value WHERE condition; 
+UPDATE student SET place="kozhikode" WHERE id=1;
+
+-- add new column email to the table
+ALTER TABLE student ADD email varchar(20);
+ALTER TABLE student ADD phone int;
+
+show columns from student;
+
+update student SET phone=9898989898 where id=1;
+
+ALTER TABLE student MODIFY phone bigint;
