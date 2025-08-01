@@ -68,7 +68,15 @@ INSERT INTO student(id,name) values(5,"x"); -- no place given but default calicu
 INSERT INTO student(id,name,place) values(6,"x","kochi"); -- place given so the given place will be applied
 
  -- creating new table in same DB
-CREATE TABLE employee(emp_id int not null unique,employee_name varchar(20) not null,age int check(age>=18),state varchar(20) default "kerala");
+CREATE TABLE employee(emp_id int not null unique auto_increment,employee_name varchar(20) not null,age int check(age>=18),state varchar(20) default "kerala");
 
+-- inserting values
+insert into employee(employee_name,age) values("abc",25);
+insert into employee(employee_name,age,state) values("abc",18,"karnataka");
+
+-- display table
 select * from employee;
 show columns from employee;
+
+-- drop table
+drop table employee;
