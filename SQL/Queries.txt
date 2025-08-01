@@ -1,30 +1,34 @@
 -- show available databeses
 SHOW DATABASES;
+
 -- create new database
 CREATE DATABASE python_june_2025;
+
 -- to select db
-use python_june_2025;
+USE python_june_2025;
+
 -- to show tables availabe in selected db
-show tables;
+SHOW TABLES;
+
 -- delete database
-drop database nalla_peru;
+DROP DATABASE nalla_peru;
 
 -- create new table in the selected database
-create table student(id int, name varchar(20),place varchar(15));
+CREATE TABLE student(id int, name varchar(20),place varchar(15));
 
 -- delete table
-drop table student;
+DROP TABLE student;
 
--- fetch data
+-- display table and data
 SELECT name,place FROM student;
 SELECT * FROM student;
 
 -- insert data
 -- insert into table_name values();
 -- insert into table_name (col(s)) values();
-
 INSERT INTO student VALUES(1,"A","Calicut"),(2,"B","Kochi");
 
+-- Display table data with id
 SELECT * FROM student WHERE id=1;
 SELECT name FROM student WHERE id=1;
 
@@ -39,8 +43,32 @@ UPDATE student SET place="kozhikode" WHERE id=1;
 ALTER TABLE student ADD email varchar(20);
 ALTER TABLE student ADD phone int;
 
-show columns from student;
+-- show table attributes and its properties 
+SHOW COLUMNS FROM student;
 
-update student SET phone=9898989898 where id=1;
+-- update phone number of a row in table 
+UPDATE student SET phone=9898989898 WHERE id=1;
 
+-- change datatype of phone from int to bigint 
 ALTER TABLE student MODIFY phone bigint;
+
+-- delete column email
+ALTER TABLE student DROP email;
+
+-- Rename table to python from student 
+ALTER TABLE student RENAME TO python;
+ALTER TABLE python RENAME TO student;
+
+-- Change column name phone to phone_no
+ALTER TABLE student CHANGE COLUMN phone phone_no BIGINT;
+
+-- set default value to a column 
+ALTER TABLE student ALTER COLUMN place SET DEFAULT "calicut";
+INSERT INTO student(id,name) values(5,"x"); -- no place given but default calicut will be applied
+INSERT INTO student(id,name,place) values(6,"x","kochi"); -- place given so the given place will be applied
+
+ -- creating new table in same DB
+CREATE TABLE employee(emp_id int not null unique,employee_name varchar(20) not null,age int check(age>=18),state varchar(20) default "kerala");
+
+select * from employee;
+show columns from employee;
