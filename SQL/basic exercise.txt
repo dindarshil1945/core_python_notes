@@ -66,13 +66,32 @@ select salesman_id,name,city,commision from salesman where city not in ("Paris",
 select * from customer where customer_id in(3007,3008,3009);
 select * from salesman where commision between 0.12 and 0.14;
 select * from orders where purch_amt not in (948.50,1983.43) and purch_amt between 500 and 4000;
-select * from salesman where name like("A%") or name like("K%");
+select * from salesman where name between "a" and "k";
 select * from customer where cust_name like("B%");
 select * from salesman where name like("N%") and name like("___L%");
 
 select sum(purch_amt) from orders;
 select avg(purch_amt) from orders;
-select count(salesman_id) from orders;
+select count(distinct salesman_id) from orders;
 select max(purch_amt) from orders;
-select count(*) from customer where grade is not null;
+select count(grade) from customer where grade>0;
+select city,max(grade) from customer group by city;
+select customer_id,max(purch_amt) from orders group by customer_id;
+select customer_id,ord_date,max(purch_amt) from orders where ord_date="2012-09-10" group by customer_id;
+select salesman_id,max(purch_amt) from orders where ord_date="2012-08-17" group by salesman_id;
 
+/*
+sql joins
+inner joins,
+*/
+
+create table table1(name varchar(20),city varchar(20));
+create table table2(name varchar(20),city varchar(20));
+insert into table1 values("a","calicut"),("b","kochi"),("c","tvm");
+insert into table2 values("x","calicut"),("y","kochi");
+select * from table1;
+select * from table2;
+
+
+select salesman.name,customer.cust_name,salesman.city from salesman join customer on salesman.city=customer.city;
+select customer.cust_name,salesman.name from customer join salesman on customer.salesman_id=salesman.salesman_id;
