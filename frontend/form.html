@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <form action="submit.html" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Personal Info</legend>
+        <label>First Name:</label>
+        <input type="text" required /><br /><br />
+        <label>Last Name:</label>
+        <input type="text" required /><br /><br />
+        <label>Age:</label>
+        <input type="number" required /><br /><br />
+        <label>Password:</label>
+        <input type="password" required /><br /><br />
+        <label>Email:</label>
+        <input type="email" required /><br /><br />
+      </fieldset>
+      <label>Gender</label><br />
+      <input type="radio" name="gender" value="male" />
+      <label>Male</label><br />
+      <input type="radio" name="gender" value="female" />
+      <label>Female</label><br />
+      <input type="radio" name="gender" value="others" />
+      <label>Others</label><br /><br />
+      <label>Address</label><br />
+      <textarea cols="20" rows="10"></textarea><br /><br />
+      <label>DOB</label>
+      <input type="date" /><br /><br />
+      <label>File Upload</label>
+      <input type="file" /><br /><br />
+      <label>State</label>
+      <select>
+        <option value="" selected disabled>--select--</option>
+        <option value="kerala">kerala</option>
+        <option value="karnataka">karnataka</option>
+        <option value="Tamilnadu">Tamilnadu</option></select
+      ><br /><br />
+      <input type="checkbox" />
+      <label>Terms and conditions</label><br /><br />
+
+      <input type="text" list="dataset" />
+      <datalist id="dataset">
+        <option value="python"></option>
+        <option value="java"></option>
+        <option value="django"></option></datalist
+      ><br /><br />
+
+      <input type="submit" value="Register" />
+      <input type="Reset" value="Reset" />
+    </form>
+  </body>
+</html>
